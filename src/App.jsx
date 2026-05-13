@@ -88,7 +88,7 @@ const services = [
 const plans = [
   {
     name: 'Review Starter',
-    price: '$97/mo',
+    price: '$147/mo',
     bestFor: 'Getting more Google reviews',
     cta: 'Start With Reviews',
     features: [
