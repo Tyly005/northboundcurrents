@@ -61,19 +61,19 @@ const problemCards = [
 const services = [
   {
     title: 'Google Review Automation',
-    copy: 'We help you ask real customers for reviews at the right time, follow up automatically, and make the review process simple.'
+    copy: 'We help you ask real customers for reviews right after the job, follow up automatically, and make the review process simple from their phone.'
   },
   {
     title: 'Missed-Call Text-Back',
-    copy: 'When someone calls and you miss it, they should not disappear. We send an instant text so the conversation keeps moving.'
+    copy: 'When someone calls from Google, Facebook, or a referral and you miss it, they should not disappear. We send an instant text so the conversation keeps moving.'
   },
   {
     title: 'Simple Websites',
-    copy: 'No bloated $5,000 brochure site. Just a clean, mobile-friendly site that tells people what you do and gets them to contact you.'
+    copy: 'No bloated $5,000 brochure site. Just a clean, mobile-friendly site that tells nearby customers what you do, where you work, and how to contact you.'
   },
   {
     title: 'Social Proof Posting',
-    copy: 'Good reviews should not sit hidden. We turn them into simple Facebook and Instagram posts that make your business look active and trusted.'
+    copy: 'Good reviews should not sit hidden. We turn real customer feedback into simple Facebook and Instagram posts that make your local business look active and trusted.'
   },
   {
     title: 'Lead Capture Forms',
@@ -82,6 +82,33 @@ const services = [
   {
     title: 'Basic Follow-Up Automation',
     copy: 'Simple reminders and messages that help keep leads from going cold.'
+  }
+];
+
+const reviewExamples = [
+  {
+    business: 'Aqua Force Pressure Washing',
+    service: 'Driveway clean-up',
+    customer: 'Mark',
+    accent: 'from-blue-600 to-sky-400',
+    reply: 'Absolutely. The driveway looks brand new. I will leave a review now.',
+    link: 'g.page/aquaforcepw'
+  },
+  {
+    business: 'Vibrant Painting Co.',
+    service: 'Interior painting',
+    customer: 'Stephanie',
+    accent: 'from-current-500 to-north-500',
+    reply: 'Thanks so much. We love how the rooms turned out.',
+    link: 'g.page/vibrantpainting'
+  },
+  {
+    business: 'Sparkle Carpet Cleaning',
+    service: 'Carpet cleaning',
+    customer: 'Tyler',
+    accent: 'from-north-700 to-slate-500',
+    reply: 'Great service from start to finish. Review coming right up.',
+    link: 'g.page/sparklecarpet'
   }
 ];
 
@@ -205,6 +232,7 @@ function App() {
         <Hero />
         <ProblemSection />
         <Services />
+        <ReviewTextExamples />
         <Pricing />
         <Process />
         <WhyNorthbound />
@@ -310,8 +338,8 @@ function Hero() {
             and local traffic into leads.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl">
-            Northbound Currents builds simple review and lead capture systems for
-            local service businesses without the bloated agency price tag.
+            Northbound Currents builds simple review, text-back, and lead capture
+            systems for local service businesses without the bloated agency price tag.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button href="#contact">Get a Free Reputation Checkup</Button>
@@ -320,8 +348,8 @@ function Hero() {
             </Button>
           </div>
           <p className="mt-6 max-w-xl text-sm font-medium leading-6 text-slate-500">
-            Built for contractors, auto shops, barbers, home services, and
-            local service businesses.
+            Built for contractors, cleaners, painters, auto shops, barbers, home
+            services, and local owner-operated businesses.
           </p>
         </div>
 
@@ -431,6 +459,86 @@ function Services() {
         ))}
       </div>
     </Section>
+  );
+}
+
+function ReviewTextExamples() {
+  return (
+    <Section id="review-examples">
+      <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
+        <div>
+          <Pill>Review request examples</Pill>
+          <h2 className="mt-5 text-3xl font-bold leading-tight text-north-950 sm:text-4xl">
+            Make it easy for local customers to leave proof while the job is still fresh.
+          </h2>
+          <p className="mt-5 text-lg leading-8 text-slate-600">
+            After a good job, most customers are willing to help. They just need a
+            clear text, a simple link, and a reminder that their review helps other
+            local homeowners choose the right business.
+          </p>
+          <div className="mt-6 grid gap-3">
+            {[
+              'Personalized text message sent after the job',
+              'Direct Google review link included',
+              'Friendly follow-up if they forget',
+              'Works for trades, shops, clinics, salons, and home services'
+            ].map((item) => (
+              <div className="flex items-center gap-3 rounded-xl bg-white p-4 shadow-sm ring-1 ring-slate-200" key={item}>
+                <CheckIcon />
+                <span className="text-sm font-semibold leading-6 text-slate-700">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid gap-5 md:grid-cols-3">
+          {reviewExamples.map((example) => (
+            <PhoneMockup example={example} key={example.business} />
+          ))}
+        </div>
+      </div>
+    </Section>
+  );
+}
+
+function PhoneMockup({ example }) {
+  return (
+    <article className="mx-auto w-full max-w-[19rem] rounded-[2rem] border-[10px] border-slate-950 bg-white p-3 shadow-soft">
+      <div className="mx-auto mb-3 h-5 w-24 rounded-b-2xl bg-slate-950" />
+      <div className="flex items-center justify-between text-xs font-semibold text-slate-950">
+        <span>9:41</span>
+        <span className="text-[10px] tracking-[0.12em] text-slate-500">SMS</span>
+      </div>
+
+      <div className="mt-4 text-center">
+        <div className={`mx-auto grid h-14 w-14 place-items-center rounded-full bg-gradient-to-br ${example.accent} text-lg font-black text-white shadow-card`}>
+          NC
+        </div>
+        <h3 className="mt-2 text-sm font-bold leading-5 text-slate-950">{example.business}</h3>
+        <p className="text-xs font-medium text-slate-500">{example.service}</p>
+      </div>
+
+      <div className="mt-4 overflow-hidden rounded-2xl bg-slate-100">
+        <div className={`h-28 bg-gradient-to-br ${example.accent} p-4 text-white`}>
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-white/75">
+            Review request
+          </p>
+          <p className="mt-5 text-3xl font-black">{example.customer}</p>
+        </div>
+      </div>
+
+      <div className="mt-3 rounded-2xl bg-slate-100 p-4 text-sm leading-6 text-slate-800">
+        <p>Hi {example.customer}. Thanks again for choosing {example.business}.</p>
+        <p className="mt-3">
+          A quick Google review helps other local customers find us.
+        </p>
+        <p className="mt-3 font-semibold text-north-700">Review us here: {example.link}</p>
+      </div>
+
+      <div className="ml-auto mt-3 max-w-[88%] rounded-2xl rounded-br-md bg-blue-600 p-3 text-sm leading-5 text-white">
+        {example.reply}
+      </div>
+    </article>
   );
 }
 
