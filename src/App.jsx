@@ -115,7 +115,7 @@ const reviewExamples = [
 const plans = [
   {
     name: 'Review Starter',
-    price: '$147/mo',
+    price: '$99/mo',
     bestFor: 'Getting more Google reviews',
     cta: 'Start With Reviews',
     features: [
@@ -128,7 +128,7 @@ const plans = [
   },
   {
     name: 'Review + Social Proof',
-    price: '$197/mo',
+    price: '$199/mo',
     bestFor: 'Reviews plus Facebook and Instagram content',
     cta: 'Build Social Proof',
     featured: true,
@@ -143,7 +143,7 @@ const plans = [
   },
   {
     name: 'Lead Capture System',
-    price: '$297/mo',
+    price: '$299/mo',
     bestFor: 'Website, reviews, follow-up, and missed-call recovery',
     cta: 'Build My System',
     features: [
