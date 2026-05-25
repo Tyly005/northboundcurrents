@@ -115,7 +115,7 @@ const reviewExamples = [
 const plans = [
   {
     name: 'Review Starter',
-    price: '$99/mo',
+    price: '$149/mo',
     bestFor: 'Getting more Google reviews',
     cta: 'Start With Reviews',
     features: [
